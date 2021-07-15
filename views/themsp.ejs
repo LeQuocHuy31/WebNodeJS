@@ -1,0 +1,71 @@
+ <!--header-->
+ <%- include('header')%>
+        <!-- Breadcrumb Start -->
+        <div class="breadcrumb-wrap">
+            <div class="container">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="#">Quản lí</a></li>
+                    <li class="breadcrumb-item active">Sản phẩm</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Breadcrumb End -->
+
+        <!-- My Account Start -->
+        <div class="my-account">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+                            <a class="nav-link" href="/admin/loaisp" role="tab">Loại sản phẩm</a>
+                            <a class="nav-link active" href="/admin/sp" role="tab">Sản phẩm</a>
+                            <a class="nav-link" href="/admin/quanlidonhang">Đơn hàng</a>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" >
+                                <h4>Thông tin sản phẩm</h4>
+                                <form action="/themsp" method="post" name="frmthemsp" enctype="multipart/form-data">
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Tên sản phẩm<span>*</span></label>
+                                        <input type="text" name="ten_sp" id="ten_sp">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Đơn giá<span>*</span></label>
+                                        <input type="text" name="don_gia" id="don_gia">
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label>Hình sản phẩm<span>*</span></label>
+                                        <input type="file"  name="hinh_sp" id="hinh_sp">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Loại sản phẩm<span>*</span></label></br>
+                                        <%-cboloai%>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label>Mô tả<span>*</span></label>
+                                        <input type="text"  name="mo_ta" id="mo_ta">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button type="submit">Thêm sản phẩm</button>
+                                        <br><br>
+                                    </div>
+                        
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- My Account End -->
+        
+        
+        <!-- Footer Start -->
+        <%- include('footer')%>

@@ -1,0 +1,91 @@
+        <!--header-->
+        <%- include('header')%>
+        
+        
+        <!-- Breadcrumb Start -->
+        <div class="breadcrumb-wrap">
+            <div class="container">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="#">Giỏ hàng</a></li>
+                    <li class="breadcrumb-item active">Chi tiết đơn hàng</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Breadcrumb End -->
+        
+        
+        <!-- Checkout Start -->
+        <div class="checkout">
+            <div class="container"> 
+                <div class="row">
+                    <div class="col-md-6">
+                        <!--<div class="billing-address">
+                            <h2>Chi tiết đơn hàng</h2>
+                            <div class="row">
+                                <div class="col-md-6" style="height: 30px;">
+                                    <h4>Sản phẩm</h4>
+                                </div>
+                                <div class="col-md-4" style="height: 30px;">
+                                    <h4>Tổng</h4>
+                                </div>
+                                <div class="col-md-10"><hr style="height:2px;border-width:0;color:gray;background-color:gray"></div>
+                                <div class="col-md-6" style="height: 30px;">
+                                    <p>Cà chua x 3</p>
+                                </div>
+                                
+                                <div class="col-md-4" style="height: 30px;">
+                                    <p>15000</p>
+                                </div>
+                                <div class="col-md-10"><hr style="height:2px;border-width:0;color:gray;background-color:gray"></div>
+                                <div class="col-md-6" style="height: 30px;">
+                                    <h5>Tổng</h5>                                
+                                </div>
+                                
+                                <div class="col-md-4" style="height: 30px;">
+                                    <p>15000</p>
+                                </div>
+                                <div class="col-md-10"><hr style="height:2px;border-width:0;color:gray;background-color:gray"></div>
+                                <div class="col-md-6">
+                                    <p>Phương thức thanh toán:</p>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <p>Trả tiền mặt khi giao hàng</p>
+                                </div>                        
+                            </div>
+                        </div>  -->      
+                        <div class="checkout-summary">
+                            <div class="chitiet">
+                                <h3>Chi tiết đơn hàng</h3>
+                                <h4 class="sub-total">Sản phẩm <span>Tổng</span></h4>
+                                <!--<p class="ship-cost">Dâu tây x 3<span>$11</span></p>
+                                <p class="ship-cost">Dâu tây x 3<span>$11</span></p>
+                                <p class="ship-cost">Dâu tây x 3<span>$11</span></p>
+                                <h4>Tổng <span>300</span></h4>  -->
+                                <%-chitietdh%>                             
+                            </div>
+                        </div>                                     
+                    </div>
+                    <div class="col-md-6">
+                        <div class="checkout-summary">
+                            <div class="success">
+                                <h5>Cảm ơn bạn. Đơn hàng đã được nhận</h5>
+                                <br>
+                                <!--<p>Mã đơn hàng: <b>903</b></p>
+                                <p>Ngày: <b>17-7-2021</b></p>
+                                <p>Tổng tiền: <b>20000đ</b></p>-->
+                                <%-donhang%>
+                                <p>Phương thức thanh toán: <b>Trả tiền mặt khi giao hàng</b></p>                           
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+        <!-- Checkout End -->
+        
+        
+        <!-- Footer Start -->
+        <%- include('footer')%>

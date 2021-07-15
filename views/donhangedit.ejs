@@ -1,0 +1,41 @@
+ <!--header-->
+ <%- include('header')%>
+        <!-- Breadcrumb Start -->
+        <div class="breadcrumb-wrap">
+            <div class="container">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="#">Quản lí</a></li>
+                    <li class="breadcrumb-item active">Chi tiết đơn hàng</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Breadcrumb End -->
+
+        <!-- My Account Start -->
+        <div class="my-account">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+                            <a class="nav-link" href="/admin/loaisp" role="tab">Loại sản phẩm</a>
+                            <a class="nav-link" href="/admin/sp" role="tab">Sản phẩm</a>
+                            <a class="nav-link active" href="/admin/quanlidonhang" role="tab">Đơn hàng</a>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" >
+                                <h4>Thông tin đơn hàng</h4>
+                                <%-thongtindonhang%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- My Account End -->
+        
+        
+        <!-- Footer Start -->
+        <%- include('footer')%>
