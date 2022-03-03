@@ -17,7 +17,7 @@
         
         <!-- Checkout Start -->
         <div class="checkout">
-            <form name="frmdathang" method="post" action="/xulydathang">
+            <form name="myForm" method="post" id="myForm" action="">
             <div class="container"> 
                 <div class="row">
                     <div class="col-md-7">
@@ -74,21 +74,9 @@
                         <div class="checkout-payment">
                             <h2>Phương Thức Thanh Toán</h2>
                             <div class="payment-methods">
-                                <!--<div class="payment-method">
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="payment-1" name="payment">
-                                        <label class="custom-control-label" for="payment-1">Paypal</label>
-                                    </div>
-                                   <div class="payment-content" id="payment-1-show">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
-                                        </p>
-                                    </div>
-                                </div>-->
-                    
                                 <div class="payment-method">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="payment-4" name="payment">
+                                        <input type="radio" class="custom-control-input" id="payment-4" name="payment" value="payment">
                                         <label class="custom-control-label" for="payment-4">Chuyển khoản ngân hàng</label>
                                     </div>
                                     <div class="payment-content" id="payment-4-show">
@@ -98,18 +86,45 @@
                                 </div>
                                 <div class="payment-method">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="payment-5" name="payment">
+                                        <input type="radio" class="custom-control-input" id="payment-5" name="payment" value="dathang">
                                         <label class="custom-control-label" for="payment-5">Tiền mặt khi giao hàng</label>
                                     </div>
-                                    <!--<div class="payment-content" id="payment-5-show">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
-                                        </p>
-                                    </div>-->
+                                   
                                 </div>
                             </div>
+                           
                             <div class="checkout-btn">
-                                <button type="submit" >Đặt hàng</button>
+                                
+                                    <script                                  
+                                        src="//checkout.stripe.com/v2/checkout.js"
+                                        class="stripe-button"
+                                        style=" display: none;"
+                                        data-key="<%= key %>" 
+                                        data-amount="<%= tongtien %>" 
+                                        data-currency="vnd" 
+                                        data-name="<%= ten%>" 
+                                        data-description="Thanh toán hóa đơn" 
+                                        data-locale="auto" > 
+                                    </script> 
+                                    <script>document.getElementsByClassName('stripe-button-el')[0].style.display='none'
+                                    </script>
+                                    <button  type="submit" id="thanhtoan">Đặt hàng</button>
+                                    <script language="javascript">
+                                        document.getElementById("thanhtoan").onclick = function ()
+                                        {
+                                            
+                                            var checkbox = document.getElementsByName("payment");
+                                           
+                                             for (i=0; i < checkbox.length; i++){
+                                                if (checkbox[i].checked === true ){
+                                                    document.getElementById("myForm").action = checkbox[i].value;            
+                                                }
+                                            }
+                                            if(checkbox[0].checked === false && checkbox[1].checked === false){
+                                                alert("Bạn chưa chọn phương thức thanh toán")
+                                            }
+                                        }
+                                    </script>
                             </div>
                         </div>
                     </div>

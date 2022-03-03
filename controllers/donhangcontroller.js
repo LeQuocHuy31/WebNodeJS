@@ -1,5 +1,6 @@
 var bangdonhang = require('../models/Donhang');
 var bangsanpham = require('../models/Product')
+
 module.exports.select = async function(ten){
     var dsdonhang = await bangdonhang.select({hoten:ten});
     var kq="";
@@ -13,11 +14,17 @@ module.exports.select = async function(ten){
         kq=kq +"<tr>"
                 +"<td>"+dsdonhang[i].sodh+"</td>"
                 +"<td>"+dsdonhang[i].ngaymua+"</td>"
-                +"<td>"+tong+"</td>"
-                +"<td>Đang xử lí</td>"
-                +"<td><a href='/ttdonhang/"+dsdonhang[i].sodh+"'><button>Chi tiết</button></a></td>"
+                +"<td>"+tong+"đ</td>"
+                +"<td>"+dsdonhang[i].trangthai+"</td>"
+                
+                if(dsdonhang[i].trangthai != 'Đang xử lí'){
+                kq=kq+"<td><a href='/ttdonhang/"+dsdonhang[i].sodh+"'><button>Chi tiết</button></a></td>"
+               
+                }else{
+                kq=kq+"<td><button onclick='huydonhang("+dsdonhang[i].sodh+")'>Hủy</button><button style='margin-left: 10px;' onclick='xemdonhang("+dsdonhang[i].sodh+")'>Chi tiết</button></td>";
+                
+                }
             +"</tr>"
-    
     }
    // console.log(kq);
     return kq;
@@ -37,8 +44,8 @@ module.exports.selectchitietdonhang = async function(madh){
                 +"<td>"+dsmh[i].ma+"</td>"
                 +"<td>"+dsmh[i].tensanpham+"</td>"
                 +"<td>"+dsmh[i].soluong+"</td>"
-                +"<td>"+gia+"</td>"
-                +"<td>"+dsmh[i].thanhtien+"</td>"
+                +"<td>"+gia+"đ</td>"
+                +"<td>"+dsmh[i].thanhtien+"đ</td>"
             +"</tr>"
     
     }
@@ -90,18 +97,45 @@ module.exports.selectforAdmin = async function(){
         kq=kq+"<tr>";
         kq=kq+"<td>"+dsdonhang[i].sodh+"</td>";
         kq=kq+"<td>"+dsdonhang[i].hoten+"</td>";
-        kq=kq+"<td>"+dsdonhang[i].diachi+"</td>";
         kq=kq+"<td>"+dsdonhang[i].ngaymua+"</td>";
         var tong = 0;
         for (j=0;j<dsdonhang[i].dsmh.length;j++)
             tong+=dsdonhang[i].dsmh[j].thanhtien*1;
         kq=kq+"<td>"+tong+"</td>";
-        kq=kq+"<td><button onclick='xemdonhang("+dsdonhang[i].sodh+")'>Xem</button></td>";
-        kq=kq+"</tr>";
+    
+        kq=kq+"<td>"+dsdonhang[i].trangthai+"</td>";
+       // kq=kq+"<td><button onclick='xemdonhang("+dsdonhang[i].sodh+")'>Xem</button></td>";
+       kq=kq+"<td><button onclick='capnhapdonhang("+dsdonhang[i].sodh+")'><i class='fa fa-pencil'></i></button><button style='margin-left: 10px;' onclick='xemdonhang("+dsdonhang[i].sodh+")'>Xem</button></td>";
+       kq=kq+"</tr>";
     }
     kq=kq+"</tbody>";
     return kq;
 }
+
+module.exports.selectforupdate = async function(madh){
+    var cb="<select name='trang_thai' id='trang_thai' style=' height: 30px;width:300px'>";
+    cb = cb +  "<option value='Đang xử lí' selected>Đang xử lí</option>";
+    cb = cb +  "<option value='Đang vận chuyển'>Đang vận chuyển</option>";
+    cb = cb +  "<option value='Đã giao'>Đã giao</option>";
+    cb= cb+"</select>";
+    var kq= "<form action='/capnhapdonhang/"+madh+"' method='post' name='frmcapnhatdonhang' enctype='multipart/form-data'>";
+    kq = kq +"<div class='col-md-6'>";
+    kq = kq+"<label>Trạng thái đơn hàng<span>*</span></label></br>";
+    kq = kq + cb;
+    kq = kq+"</div><br>";
+    kq = kq +"<div class='col-md-12'>";
+    kq = kq +"<button type='submit'>Cập nhập</button>";
+    kq = kq +"<br><br>";
+    kq = kq+"</div>";
+    kq = kq+"</div>";
+    return kq;
+}
+
+module.exports.delete = async function(madh){
+	del = await bangdonhang.delete({sodh:madh});
+	return "";
+}
+
 module.exports.tongquan = async function(){
     var dsdonhang = await bangdonhang.selectAll();
     var tong = 0;
@@ -109,7 +143,7 @@ module.exports.tongquan = async function(){
         for (j=0;j<dsdonhang[i].dsmh.length;j++)
         tong+=dsdonhang[i].dsmh[j].thanhtien*1;
     }
-    var kq = "<div><p>Số đơn hàng: "+ dsdonhang.length + ". Tổng doanh thu: " + tong +" VND</p>";
+    var kq = "<div><p>Số đơn hàng: <b>"+ dsdonhang.length + "</b>. Tổng doanh thu: <b>" + tong +" VND</b></p>";
     return kq;
 }
 module.exports.selectdetail = async function(sodh){
@@ -142,4 +176,9 @@ module.exports.selectdetail = async function(sodh){
     kq = kq +"</table>";
     kq = kq + "<p><b>Tổng tiền:</b> "+tongtien+" VND</p>";
     return kq;
+}
+
+module.exports.update=async function(dh,trangthai){
+    var tt= await bangdonhang.update({sodh:dh},trangthai);
+    return tt;
 }

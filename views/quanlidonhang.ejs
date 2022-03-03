@@ -12,8 +12,12 @@
         </div>
         <!-- Breadcrumb End -->
         <script>
-            function xemdonhang(donhang) {
-            window.location="/donhang/"+donhang;
+            function xemdonhang(madh) {
+            window.location="/donhang/"+madh;
+        } 
+
+        function capnhapdonhang(madh) {
+            window.location="/capnhapdonhang/"+madh;
         } 
         </script>
         <!-- My Account Start -->
@@ -41,8 +45,8 @@
                                                 <th>Họ tên</th>
                                                 <th>Địa chỉ</th>
                                                 <th>Ngày mua</th>
-                                                <th>Tổng tiền</th>
-                                                <th>Chi tiết</th>
+                                                <th>Trạng thái</th>
+                                                <th>Chức năng</th>
                                             </tr>
                                         </thead>
                                         <%-dsdonhang%>

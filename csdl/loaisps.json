@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "60dfd450e608783e62b54077"
+  },
+  "idCat": "1",
+  "nameCat": "Trái cây"
+},{
+  "_id": {
+    "$oid": "60dfd450e608783e62b54078"
+  },
+  "idCat": "2",
+  "nameCat": "Rau và củ"
+},{
+  "_id": {
+    "$oid": "60dfd450e608783e62b54079"
+  },
+  "idCat": "3",
+  "nameCat": "Đậu "
+}]

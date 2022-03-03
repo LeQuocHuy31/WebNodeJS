@@ -6,6 +6,16 @@ var publicDir = require('path').join(__dirname,'/public');
 app.use(express.static(publicDir));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
+
+const bodyparser = require('body-parser') 
+
+app.use(bodyparser.urlencoded({extended:false})) 
+app.use(bodyparser.json()) 
+
+var Publishable_Key = 'pk_test_51JFE0aJ8gEDJ91qwzTVjAValiMWDhOaNO18xUeStKW53wQdjnWJLVpBWi1CmIWjC1gt6RirnUB7tKm5dN3hvFFOo00BEGDhg04'
+var Secret_Key = 'sk_test_51JFE0aJ8gEDJ91qwzdvDPcf5UabuygY9qNW7X6r3uQNEgLwUWKPJgRjtpsrREe8MRb4QuWvXKrmyOLJKRJuqJ2LF003FMN5JdQ'
+
+const stripe = require('stripe')(Secret_Key) 
 //Su dung Session
 var session = require('express-session');
 app.use(session({
@@ -25,6 +35,7 @@ var sanpham=require('./controllers/productcontroller')
 var User=require('./controllers/usercontroller')
 var donhang=require('./controllers/donhangcontroller');
 const internal = require('stream');
+const { addListener } = require('process');
 app.get('/',function(req,res){
   HienThi(req,res);
 });
@@ -43,6 +54,18 @@ app.get('/admin',async function(req,res){
   res.render('adminlogin',{dangnhap:taikhoan,ttgiohang:giohang,menuloaisp:menu});
 });
 
+
+
+/******quen mật khấu*******/
+app.get('/resset',async function(req,res){
+  var menu= await danhmuc.selectmenu();
+  var taikhoan=dangnhap(req,res);
+  var giohang=ThongTinGioHang(req)
+  res.render('ressetpassword',{dangnhap:taikhoan,ttgiohang:giohang,menuloaisp:menu});
+});
+
+
+/************************* */
 app.get('/about',async function(req,res){
   var menu= await danhmuc.selectmenu();
   var taikhoan=dangnhap(req,res);
@@ -51,8 +74,11 @@ app.get('/about',async function(req,res){
 });
 
 
-app.get('/dangki',function(req,res){
-    res.render('registration');
+app.get('/dangki', async function(req,res){
+    var menu= await danhmuc.selectmenu();
+    var taikhoan=dangnhap(req,res);
+    var giohang=ThongTinGioHang(req)
+    res.render('registration',{dangnhap:taikhoan,ttgiohang:giohang,menuloaisp:menu});
 });
 
 app.get('/thanhcong', async function(req, res){
@@ -98,15 +124,13 @@ app.get('/checkout',async function(req,res){
         tongtien = tongtien + giohang[i].soluong*giohang[i].giaban;
       }
 	}
-  /*var ship=0.1*tongtien;
-  var tongchiphi=ship+tongtien;*/
   kq=kq+"<p class='sub-total'>Tổng <span>"+tongtien+"đ</span></p>"
     +"<p class='ship-cost'>Phụ phí<span>0đ</span></p>"
     +"<h4>Tổng cộng<span>"+tongtien+"đ</span></h4>"
     var menu= await danhmuc.selectmenu();
   var taikhoan=dangnhap(req,res);
   var giohang=ThongTinGioHang(req)
-  res.render('checkout',{dangnhap:taikhoan,ttgiohang:giohang,menuloaisp:menu,donhang:kq,hoten:hoten,diachi:diachi,sodt:dienthoai,email:email});
+  res.render('checkout',{dangnhap:taikhoan,ttgiohang:giohang,menuloaisp:menu,donhang:kq,hoten:hoten,diachi:diachi,sodt:dienthoai,email:email,key: Publishable_Key,tongtien:tongtien,ten:hoten});
 })
 //////////////////////////////////
 /// Tài Khoản ///////////////////
@@ -147,6 +171,12 @@ app.get('/ttdonhang/:madh', async function(req,res){
   res.render('chitietdonhang',{dangnhap:taikhoan,ttgiohang:giohang,menuloaisp:menu,tendn:tendn,hoten:hoten,diachi:diachi,sodt:dienthoai,email:email,chitietdonhang:chitetdh});
 })
 
+app.get('/huydonhang/:madh', async function(req,res){
+  var ma = req.params.madh;
+  var huydonhang = await donhang.delete(ma);
+  res.redirect('/ttdonhang');
+})
+
 //////////////////////////////////
 /// END tài Khoản ///////////////
 /////////////////////////////////
@@ -155,11 +185,18 @@ app.get('/xulydathang/:madh', async function(req,res){
   var sodh = req.params.madh;
   var chitetdh= await donhang.chitietdonhang(sodh);
   var dh= await donhang.donhang(sodh)
-  //console.log(dh);
+  var pttt=""
+  if(req.session.tt===true){
+    pttt="Chuyển khoản ngân hàng"
+    req.session.tt=null;
+  }
+  else{
+    pttt="Thanh toán khi nhận hàng"
+  }
   var menu= await danhmuc.selectmenu();
   var taikhoan=dangnhap(req,res);
   var giohang=ThongTinGioHang(req)
-  res.render('success',{dangnhap:taikhoan,ttgiohang:giohang,menuloaisp:menu,chitietdh:chitetdh,donhang:dh});
+  res.render('success',{dangnhap:taikhoan,ttgiohang:giohang,menuloaisp:menu,chitietdh:chitetdh,donhang:dh,thanhtoan:pttt});
 })
 
 
@@ -327,7 +364,26 @@ async function HienThiChiTietDonHang(req,res,ma){
   var thongtindonhang = await donhang.selectdetail(ma);
   res.render('donhangedit',{dangnhap:taikhoan,ttgiohang:giohang,menuloaisp:menu,thongtindonhang:thongtindonhang});
 }
+app.get('/capnhapdonhang/:madh',  async function(req, res){
+  var ma = req.params.madh;
+  HienThiCapNhapDonHang(req,res,ma);
+})
+async function HienThiCapNhapDonHang(req,res,ma){
+  var taikhoan=dangnhapadmin(req,res);
+  var giohang=ThongTinGioHang(req);
+  var menu= await danhmuc.selectmenu();
+  var chitietcapnhap = await donhang.selectforupdate(ma);
+  res.render('capnhapdonhang',{dangnhap:taikhoan,ttgiohang:giohang,menuloaisp:menu,chitiet:chitietcapnhap});
+}
 
+app.post('/capnhapdonhang/:ma', async function(req,res){
+  var thongtin=req.body;
+ // console.log(thongtin);
+  var ma = req.params.ma;
+	trangthai = thongtin.trang_thai;
+  var kq = await donhang.update(ma,trangthai);
+  res.redirect('/admin/quanlidonhang')
+})
 //////////////////////////////
 //End admin
 /////////////////////////////
@@ -440,12 +496,14 @@ app.post('/dangnhap', async(req,res)=> {
 	matkhau=ttdangnhap.mat_khau;
   var user = await User.login(tendn,matkhau);
   if(!user){
+    
     return res.status(401).send({ msg:'Thông tin đăng nhập sai. vui lòng kiểm tra lại thông tin đăng nhập'});
   }
   else if(user.isValid == false){
     return res.status(401).send({msg:'Email của bạn chưa được xác nhận . Vui lòng kiểm tra email của bạn'});
   }
   else{
+  
     req.session.user=user;
     res.redirect('/');
   }
@@ -575,8 +633,80 @@ app.get('/verify/:uniqueString', async(req,res)=>{
         res.json('User not found')
     }
 })
+app.post('/payment',async function(req, res){ 
 
-app.post('/xulydathang',async function(req,res){
+  var thongtin = req.body;
+	hoten = thongtin.ho_ten;
+	diachi = thongtin.dia_chi;
+	dienthoai = thongtin.so_dt;
+	email = thongtin.email;
+  var today = new Date();
+  var ngaymua = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+  var dh = {sodh:1,hoten:hoten,diachi:diachi,dienthoai:dienthoai,email:email,ngaymua:ngaymua};
+	dh.dsmh=req.session.giohang;
+	kq=donhang.insert(dh);
+	giohang = req.session.giohang;
+
+	//gủi mail mail
+	ttctgh="<h1 align='center'>Thông tin đơn hàng</h1>"
+	ttctgh=ttctgh+"<p>Họ tên: "+hoten+"</p>";
+	ttctgh=ttctgh+"<p>Địa chỉ: "+diachi+"</p>";
+	ttctgh=ttctgh+"<p>Điện thoại: "+dienthoai+"</p>";
+	ttctgh=ttctgh+"<p>Email: "+email+"</p>";
+	ttctgh=ttctgh+"<table width='80%' cellspacing='0' cellpadding='2' border='1'>";
+	ttctgh=ttctgh+"<tr><td width = '10%'>STT</td><td width='10%'>Mã sp</td><td width='30%'>Tên sp</td><td width='10%'>Số lượng</td><td width='15%'>Đơn giá</td><td>Tổng tiền</td></tr>";
+	var tongtien=0;
+	var stt=1;
+		for (i=0;i<giohang.length;i++){
+			ttctgh=ttctgh+"<tr><td>"+stt+"</td><td>"+giohang[i].ma+"</td><td>"+giohang[i].tensanpham+"</td><td>"+giohang[i].soluong+"</td><td>"+giohang[i].giaban+"đ</td><td>"+giohang[i].soluong*giohang[i].giaban+"đ</td></tr>";
+			stt++;
+			tongtien = tongtien + giohang[i].soluong*giohang[i].giaban;
+		}
+		ttctgh = ttctgh +"<tr><td colspan = '7' align='right'>Tổng tiền: "+tongtien+"đ</td></tr></table>";
+		ttctgh = ttctgh +"<p>Cảm ơn quý khách đã đặt hàng, đơn hàng sẽ chuyến đền quý khách trong thời gian sớm nhất";
+		mail(email,"Đơn hàng Shop My Farm",ttctgh);
+
+	if (kq)
+	req.session.giohang=null;
+ /* var taikhoan=dangnhap(req,res);
+  var giohang=ThongTinGioHang(req)*/
+  req.session.tt=true;
+  var madh= await donhang.selectmadh();
+  madh=madh+1;
+	res.redirect('/xulydathang/'+madh)
+
+  // Moreover you can take more details from user 
+  // like Address, Name, etc from form 
+  /*stripe.customers.create({ 
+      email: req.body.stripeEmail, 
+      source: req.body.stripeToken, 
+      name: 'My farm', 
+      address: { 
+          line1: 'Ktx khu A,Linh Trung, Thu Đức', 
+          postal_code: '7000', 
+          city: 'tp HCM', 
+          country: 'Viet Nam', 
+      } 
+  }) 
+  .then((customer) => { 
+
+      return stripe.charges.create({ 
+          amount: tongtien,    // Charing Rs 25 
+          description: 'Thanh toán hóa đơn', 
+          currency: 'VND', 
+          customer: customer.id 
+      }); 
+  }) 
+  .then((charge) => { 
+      //res.send("Success") // If no error occurs 
+      res.redirect('/xulydathang/'+madh)
+  }) 
+  .catch((err) => { 
+      res.send(err)    // If some error occurs 
+  }); */
+}) 
+
+app.post('/dathang',async function(req,res){
 	var thongtin = req.body;
 	hoten = thongtin.ho_ten;
 	diachi = thongtin.dia_chi;

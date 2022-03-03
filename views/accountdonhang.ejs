@@ -11,6 +11,17 @@
             </div>
         </div>
         <!-- Breadcrumb End -->
+        <script>
+            function xemdonhang(madh) {
+            window.location="/ttdonhang/"+madh;
+        } 
+        
+        function huydonhang(madh) {
+            if (confirm('Bạn có muốn hủy đơn hàng này không này không?')){
+                window.location="/huydonhang/"+madh;
+            }
+        } 
+        </script>
 
         <!-- My Account Start -->
         <div class="my-account">

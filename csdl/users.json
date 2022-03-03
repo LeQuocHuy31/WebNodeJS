@@ -1,0 +1,92 @@
+[{
+  "_id": {
+    "$oid": "60ee62af4ddddc006c8a75e3"
+  },
+  "name": "phạm ngọc hà",
+  "email": "ngocha.pham1202@gmail.com",
+  "uniqueString": "135110823",
+  "isValid": true,
+  "password": "ha120200",
+  "username": "phamha",
+  "address": "ktx khu B, Linh Trung, Thủ Đức, HCM",
+  "phone": "0343724420",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60ef825d84529a2d4cbfc509"
+  },
+  "name": "Nguyễn thị thu hiền",
+  "email": "ngocha.pham1202@gmail.com",
+  "uniqueString": "42238115",
+  "isValid": true,
+  "password": "12345678",
+  "username": "thuhien",
+  "address": "ktx khu B, Linh Trung, Thủ Đức, HCM",
+  "phone": "0343724420",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f03e35edeb110b4c3e3a4a"
+  },
+  "name": "Trần Ngọc Hương",
+  "email": "ngocha.pham1202@gmail.com",
+  "uniqueString": "910869891",
+  "isValid": true,
+  "password": "huong1234",
+  "username": "ngochuong",
+  "address": "ktx khu B, Linh Trung, Thủ Đức, HCM",
+  "phone": "0343724420",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f059351e442721e0197656"
+  },
+  "name": "lê quốc huy",
+  "email": "ngocha.pham1202@gmail.com",
+  "uniqueString": "104175321",
+  "isValid": true,
+  "password": "huy12345",
+  "username": "lehuy",
+  "address": "ktx khu A, Linh Trung, Thủ Đức, HCM",
+  "phone": "0343724420",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f0c685d2173d2e688f7b01"
+  },
+  "name": "Phạn ngọc hiếu",
+  "email": "ngocha.pham1202@gmail.com",
+  "uniqueString": "74748217",
+  "isValid": true,
+  "password": "12345678",
+  "username": "ngochieu",
+  "address": "Thôn 6, Đức Chánh, Mộ Đức ,Quãng Ngãi",
+  "phone": "0343724420",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f0d3f4c30a9032a48ccd2e"
+  },
+  "name": "võ trà my",
+  "email": "ngocha.pham1202@gmail.com",
+  "uniqueString": "849291049",
+  "isValid": true,
+  "password": "12345678",
+  "username": "tramy",
+  "address": "ktx khu B, Linh Trung, Thủ Đức, HCM",
+  "phone": "0343724420",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f83be43a7d560178a016e0"
+  },
+  "name": "Phạm Ngọc Hà",
+  "email": "ngocha.pham1202@gmail.com",
+  "uniqueString": "5101076646",
+  "isValid": true,
+  "password": "12345678",
+  "username": "hapham",
+  "address": "ktx khu B, Linh Trung, Thủ Đức, HCM",
+  "phone": "0343724420",
+  "__v": 0
+}]

@@ -7,6 +7,7 @@ var userSchema = new mongoose.Schema({
     dienthoai:Number,
     email:String,
     ngaymua:String,
+    trangthai:String,
     dsmh:[{ma:String,tensanpham:String,soluong:Number,dongia:Number,thanhtien:Number}]
 });
 
@@ -55,7 +56,16 @@ module.exports.insert = async function(newdonhang){
     var sodh=1;
     if (bangdonhang.length>0)
     sodh=sodh+bangdonhang[0].sodh;
-    const donhang = new userTabledonhang({sodh:sodh,hoten:newdonhang.hoten,diachi:newdonhang.diachi,dienthoai:newdonhang.dienthoai,email:newdonhang.email,ngaymua:newdonhang.ngaymua,dsmh:newdonhang.dsmh});
+    const donhang = new userTabledonhang({sodh:sodh,hoten:newdonhang.hoten,diachi:newdonhang.diachi,dienthoai:newdonhang.dienthoai,email:newdonhang.email,ngaymua:newdonhang.ngaymua,trangthai:"Đang xử lí",dsmh:newdonhang.dsmh});
     var userData = await donhang.save();
     return userData;
+}
+
+module.exports.update=async function(query,newtrangthai){
+    var tt =await userTabledonhang.updateOne(query,{$set:{trangthai: newtrangthai}});
+    return tt;
+}
+
+module.exports.delete=async function(query){
+    var donhang = await userTabledonhang.deleteOne(query);
 }

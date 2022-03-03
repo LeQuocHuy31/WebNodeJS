@@ -1,0 +1,211 @@
+[{
+  "_id": {
+    "$oid": "60eed167e5fd5c27c88d5d12"
+  },
+  "sodh": 1,
+  "hoten": "phamha",
+  "diachi": "87/17 tân lập, đông hòa , dĩ an , bình dương",
+  "dienthoai": 343724420,
+  "email": "ngocha.pham1202@gmail.com",
+  "ngaymua": "14-7-2021",
+  "dsmh": [
+    {
+      "_id": {
+        "$oid": "60eed167e5fd5c27c88d5d13"
+      },
+      "ma": "4",
+      "tensanpham": "Dâu tây",
+      "soluong": 5,
+      "thanhtien": 250000
+    }
+  ],
+  "__v": 0,
+  "trangthai": "Đã giao"
+},{
+  "_id": {
+    "$oid": "60f7e5fd5e45902ea867e3a8"
+  },
+  "sodh": 2,
+  "hoten": "phamha",
+  "diachi": "ktx khu A, Linh Trung, Thủ Đức, HCM",
+  "dienthoai": 343724420,
+  "email": "ngocha.pham1202@gmail.com",
+  "ngaymua": "21-7-2021",
+  "trangthai": "Đang vận chuyển",
+  "dsmh": [
+    {
+      "_id": {
+        "$oid": "60f7e5fd5e45902ea867e3a9"
+      },
+      "ma": "1",
+      "tensanpham": "Cà chua bi Đà Lạt",
+      "soluong": 3,
+      "thanhtien": 28000
+    },
+    {
+      "_id": {
+        "$oid": "60f7e5fd5e45902ea867e3aa"
+      },
+      "ma": "3",
+      "tensanpham": "Cherry",
+      "soluong": 2,
+      "thanhtien": 80000
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f7e62e5e45902ea867e3c5"
+  },
+  "sodh": 3,
+  "hoten": "phamha",
+  "diachi": "ktx khu A, Linh Trung, Thủ Đức, HCM",
+  "dienthoai": 343724420,
+  "email": "ngocha.pham1202@gmail.com",
+  "ngaymua": "21-7-2021",
+  "trangthai": "Đang xử lí",
+  "dsmh": [
+    {
+      "_id": {
+        "$oid": "60f7e62e5e45902ea867e3c6"
+      },
+      "ma": "7",
+      "tensanpham": "Cải xanh",
+      "soluong": 1,
+      "thanhtien": 7000
+    },
+    {
+      "_id": {
+        "$oid": "60f7e62e5e45902ea867e3c7"
+      },
+      "ma": "9",
+      "tensanpham": "Bí ngô",
+      "soluong": 1,
+      "thanhtien": 7000
+    },
+    {
+      "_id": {
+        "$oid": "60f7e62e5e45902ea867e3c8"
+      },
+      "ma": "6",
+      "tensanpham": "Cà rốt",
+      "soluong": 1,
+      "thanhtien": 9000
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f818575a5e50243cadc009"
+  },
+  "sodh": 4,
+  "hoten": "tramy",
+  "diachi": "ktx khu B, Linh Trung, Thủ Đức, HCM",
+  "dienthoai": 343724420,
+  "email": "ngocha.pham1202@gmail.com",
+  "ngaymua": "21-7-2021",
+  "trangthai": "Đang vận chuyển",
+  "dsmh": [
+    {
+      "_id": {
+        "$oid": "60f818575a5e50243cadc00a"
+      },
+      "ma": "1",
+      "tensanpham": "Cà chua bi Đà Lạt",
+      "soluong": 1,
+      "thanhtien": 7000
+    },
+    {
+      "_id": {
+        "$oid": "60f818575a5e50243cadc00b"
+      },
+      "ma": "2",
+      "tensanpham": "Đu đủ",
+      "soluong": 3,
+      "thanhtien": 10000
+    },
+    {
+      "_id": {
+        "$oid": "60f818575a5e50243cadc00c"
+      },
+      "ma": "12",
+      "tensanpham": "Đậu nành",
+      "soluong": 1,
+      "thanhtien": 20000
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f81a2525d99519147b2f09"
+  },
+  "sodh": 5,
+  "hoten": "phamha",
+  "diachi": "ktx khu A, Linh Trung, Thủ Đức, HCM",
+  "dienthoai": 343724420,
+  "email": "ngocha.pham1202@gmail.com",
+  "ngaymua": "21-7-2021",
+  "trangthai": "Đang vận chuyển",
+  "dsmh": [
+    {
+      "_id": {
+        "$oid": "60f81a2525d99519147b2f0a"
+      },
+      "ma": "7",
+      "tensanpham": "Cải xanh",
+      "soluong": 3,
+      "thanhtien": 7000
+    },
+    {
+      "_id": {
+        "$oid": "60f81a2525d99519147b2f0b"
+      },
+      "ma": "8",
+      "tensanpham": "Khoai Tây",
+      "soluong": 1,
+      "thanhtien": 30000
+    },
+    {
+      "_id": {
+        "$oid": "60f81a2525d99519147b2f0c"
+      },
+      "ma": "1",
+      "tensanpham": "Cà chua bi Đà Lạt",
+      "soluong": 3,
+      "thanhtien": 14000
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f83c8a3a7d560178a01710"
+  },
+  "sodh": 6,
+  "hoten": "hapham",
+  "diachi": "87/17 tân lập, đông hòa , dĩ an , bình dương",
+  "dienthoai": 343724420,
+  "email": "ngocha.pham1202@gmail.com",
+  "ngaymua": "21-7-2021",
+  "trangthai": "Đang xử lí",
+  "dsmh": [
+    {
+      "_id": {
+        "$oid": "60f83c8a3a7d560178a01711"
+      },
+      "ma": "1",
+      "tensanpham": "Cà chua bi Đà Lạt",
+      "soluong": 2,
+      "thanhtien": 7000
+    },
+    {
+      "_id": {
+        "$oid": "60f83c8a3a7d560178a01712"
+      },
+      "ma": "3",
+      "tensanpham": "Cherry",
+      "soluong": 3,
+      "thanhtien": 320000
+    }
+  ],
+  "__v": 0
+}]

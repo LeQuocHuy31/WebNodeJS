@@ -16,13 +16,13 @@ var UserSchema = new mongoose.Schema({
 var User = mongoose.model('user', UserSchema);
 
 module.exports.select = async function(query){
-    console.log(query);
+    //console.log(query);
     var banguser = await User.find(query)
     return banguser;
 }
 
 module.exports.findUser = async function(query){
-    console.log(query);
+    //console.log(query);
     var user = await User.findOne(query)
     return user;
 }

@@ -1,0 +1,132 @@
+[{
+  "_id": {
+    "$oid": "60dfd4fce608783e62b5407c"
+  },
+  "idProduct": "1",
+  "idCat": "1",
+  "nameProduct": "Cà chua bi Đà Lạt",
+  "priceProduct": "7000",
+  "imgProduct": "ca_chua_bi.jpg",
+  "desProduct": "Cà chua bi thường có kích thước nhỏ, dáng tròn hoặc hơi thuôn dài, phần vỏ cà chua bi thường thấy nhất là 2 màu đỏ và vàng cam. Cà chua bị mang vị chua nhẹ và được đánh giá là ngọt hơn cà chua thường.\r\n\r\nCà chua bi giúp cung cấp dinh dưỡng cho cơ thể và chúng còn được sử dụng để làm đẹp da. Giúp xóa các vết nám, tàn nhan đen trên mặt. Giúp chống lão hoá và phòng chống ung thư.\r\nKính chắn gió  trong suốt ngoài và kính râm chống nắng bên trong làm từ polycarbonate chống trầy xước, chống sương mù, chống 100% tia UV."
+},{
+  "_id": {
+    "$oid": "60dfd4fce608783e62b5407d"
+  },
+  "idProduct": "2",
+  "idCat": "1",
+  "nameProduct": "Đu đủ",
+  "priceProduct": "10000",
+  "imgProduct": "du_du.jpg",
+  "desProduct": "Đu đủ là loại trái cây nhiệt đới có hương vị thanh mát, dịu ngọt cùng màu sắc hấp dẫn. Từ lâu, tác dụng của đu đủ đã được chứng minh thông qua hàng loạt các lợi ích sức khỏe, khiến cho nó trở thành loại trái cây được nhiều người ưa thích.\n"
+},{
+  "_id": {
+    "$oid": "60dfd711e608783e62b5407e"
+  },
+  "idProduct": "3",
+  "idCat": "1",
+  "nameProduct": "Cherry",
+  "priceProduct": "80000",
+  "imgProduct": "cherry.jpg",
+  "desProduct": "Trái cherry người ta không chỉ ấn tượng về màu đỏ căng bóng cực hấp dẫn mà đọ giòn vị ngọt thanh, thoảng chút vị chua cùng mùi hương thơm ngon còn khiến người ta phải liên tục nuốt nước bọt."
+},{
+  "_id": {
+    "$oid": "60dfd759e608783e62b5407f"
+  },
+  "idProduct": "4",
+  "idCat": "1",
+  "nameProduct": "Dâu tây",
+  "priceProduct": "50000",
+  "imgProduct": "dau_tay.jpg",
+  "desProduct": "Dâu tây Đà Lạt thường được dùng để ăn tươi, vị chua chua, ngọt ngọt thanh mát thật sự rất quyến rũ là món tráng miệng được ưa thích vô cùng."
+},{
+  "_id": {
+    "$oid": "60dfd759e608783e62b54080"
+  },
+  "idProduct": "5",
+  "idCat": "1",
+  "nameProduct": "Cam sành",
+  "priceProduct": "50000",
+  "imgProduct": "cam_sanh.jpg",
+  "desProduct": "Cam sành là loại trái cây vốn được nhiều người yêu thích, đặc biệt là trẻ nhỏ và chị em phụ nữ, bởi cam rất bổ dưỡng và cao cấp. Trái cam sành có đặc điểm mang màu xanh sậm đến khi chín thì ngả màu vàng, dáng tròn dẹt, hương vị chua ngọt, thị trái nhiều nước. Một đặc điểm nữa đó là cam sành có khá nhiều hạt nên thường được dùng phổ biến để vắt cam."
+},{
+  "_id": {
+    "$oid": "60dfd759e608783e62b54081"
+  },
+  "idProduct": "6",
+  "idCat": "2",
+  "nameProduct": "Cà rốt",
+  "priceProduct": "9000",
+  "imgProduct": "ca_rot.jpg",
+  "desProduct": "Với hàm lượng chất chống oxy hóa, beta carotene, các vitamin và khoáng chất dồi dào, cà rốt được xem là một trong những thực phẩm cực tốt cho sức khỏe chúng ta. Cà rốt làm tốt vai trò cải thiện thị lực, ngăn chặn tế bào ung thư, tốt cho bệnh tiểu đường, làm đẹp da, giữ dáng thậm chí còn được sử dụng để làm vắc xin chống lại virus HIV."
+},{
+  "_id": {
+    "$oid": "60dfd8bee236a06f1a9eb05c"
+  },
+  "idProduct": "7",
+  "idCat": "2",
+  "nameProduct": "Cải xanh",
+  "priceProduct": "7000",
+  "imgProduct": "cai_xanh.jpg",
+  "desProduct": "Rau cải xanh (cải bẹ xanh) hay còn gọi với một số tên khác như cải xanh, cải canh, cải cay, giới tử, là một loài thực vật thuộc họ Cải (Brassicaceae). Thân của rau cải xanh to, nhỏ khác nhau tùy theo giống trồng, lá có màu xanh đậm hoặc xanh nõn lá chuối."
+},{
+  "_id": {
+    "$oid": "60dfd8bee236a06f1a9eb05d"
+  },
+  "idProduct": "8",
+  "idCat": "2",
+  "nameProduct": "Khoai Tây",
+  "priceProduct": "30000",
+  "imgProduct": "khoai_tay.jpg",
+  "desProduct": "khoai tây là một loại củ đa năng, có giá thành tương đối rẻ, dễ trồng, dễ chăm sóc và có hàm lượng chất dinh dưỡng cao, vì vậy nhiều hộ gia đình tại Việt Nam đã lựa chọn khoai tây như một món ăn chính trong các bữa ăn hàng ngày"
+},{
+  "_id": {
+    "$oid": "60dfd910e236a06f1a9eb05e"
+  },
+  "idProduct": "9",
+  "idCat": "2",
+  "nameProduct": "Bí ngô",
+  "priceProduct": "7000",
+  "imgProduct": "bi_ngo.jpg",
+  "desProduct": "Bí ngô là một thực phẩm của mùa thu. Nó rất bổ dưỡng và ít calo. Thêm vào đó, nó rất linh hoạt có thể được nấu thành các món mặn, cũng như những món ngọt"
+},{
+  "_id": {
+    "$oid": "60dfd910e236a06f1a9eb05f"
+  },
+  "idProduct": "10",
+  "idCat": "3",
+  "nameProduct": "Đậu xanh",
+  "priceProduct": "25000",
+  "imgProduct": "dau_xanh.jpg",
+  "desProduct": "Đậu xanh là nguồn cung cấp dồi dào các chất chống oxy hóa như: phenolic, flavonoid, axit caffeic và nhiều chất khác nữa. Những chất này có khả năng hạn chế sự hình thành của các gốc tự do bằng cách tiêu diệt các phân tử có hại."
+},{
+  "_id": {
+    "$oid": "60dfd910e236a06f1a9eb060"
+  },
+  "idProduct": "11",
+  "idCat": "3",
+  "nameProduct": "Đậu đen",
+  "priceProduct": "27000",
+  "imgProduct": "dau_den.jpg",
+  "desProduct": "Đậu đen có công dụng: giải nhiệt, trị phong thấp, giảm đau. Đậu đen quanh năm, toàn thân không có lông. Lá kép gồm 3 lá chét mọc so le, có lá kèm nhỏ, lá chét giữa to và dài hơn là chét hai bên. Hoa màu tím nhạt, quả giáp dài, tròn, trong chứa từ 7-10 hạt màu đen. Trong đậu đen, có loại đậu đen trắng long, đậu đen xanh lòng."
+},{
+  "_id": {
+    "$oid": "60dfd910e236a06f1a9eb061"
+  },
+  "idProduct": "12",
+  "idCat": "3",
+  "nameProduct": "Đậu nành",
+  "priceProduct": "20000",
+  "imgProduct": "dau_nanh.jpg",
+  "desProduct": "Hạt đậu nành có màu trắng ngà hoặc vàng nhạt, lớp vỏ dày, mùi thơm dịu đặc trưng. Đậu nành được sử dụng để chế biến thành nhiều món ăn ngon, phải kể đến như sữa đậu nành, đậu hũ, tào phớ, nước tương, dầu đậu nành, tương đậu nành,... Ngoài ra, nhiều loại bánh kẹo hấp dẫn khác cũng được làm từ loại đậu này."
+},{
+  "_id": {
+    "$oid": "60ee8e7d01534b1c3872d3e5"
+  },
+  "idProduct": "13",
+  "idCat": "3",
+  "nameProduct": "Đậu hà lan",
+  "priceProduct": "15000",
+  "imgProduct": "dau_ha_lan.jpg",
+  "desProduct": "Đậu Hà Lan thuộc cây thân thảo, sống được một năm và có thể tự thụ phấn. Lá có hình lông chim, ở phần đầu cuống chính là những sợi dây leo để thân cây có thể quấn vào những cây khác để leo và phát triển. Hạt đậu Hà Lan chứa nhiều protit.",
+  "__v": 0
+}]

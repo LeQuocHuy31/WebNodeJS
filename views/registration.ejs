@@ -1,26 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>My Farm- Nâng tầm nông sản Việt</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="Bootstrap Ecommerce Template" name="keywords">
-        <meta content="Bootstrap Ecommerce Template Free Download" name="description">
-
-        <!-- Favicon -->
-        <link href="img/favicon.ico" rel="icon">
-
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
-
-        <!-- CSS Libraries -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-        <link href="lib/slick/slick.css" rel="stylesheet">
-        <link href="lib/slick/slick-theme.css" rel="stylesheet">
-
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
+  <!--header-->
+  <%- include('header')%>
+  <!-- Breadcrumb Start -->
+        <div class="breadcrumb-wrap">
+            <div class="container">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item active">Đăng kí</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Breadcrumb End -->
+        
         <script type="text/javascript">
             function kiemTraDangKy(){
             var thongbao=document.getElementById("thongbao");
@@ -127,92 +117,6 @@
             return true;
          }
         </script>
-    </head>
-
-    <body>
-        <!-- Top Header Start -->
-        <div class="top-header">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-3">
-                        <div class="logo">
-                            <a href="">
-                                <img src="img/logo.png" alt="Logo">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="search">
-                            <form name="form1" method="post" action="search">
-                                <input name="tensp" id="tensp" type="text" placeholder="Search">
-                                <button><i class="fa fa-search"></i></button>
-                             </form>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="user">
-                            <div class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tài khoản</a>
-                                <div class="dropdown-menu">
-                                    <a href="/dangnhap" class="dropdown-item">Đăng nhập</a>
-                                    <a href="/dangki" class="dropdown-item">Đăng kí</a>
-                                </div>
-                            </div>
-                            <div class="cart">
-                                <i class="fa fa-cart-plus"></i>
-                                <span>(0)</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Top Header End -->
-        
-        
-        <!-- Header Start -->
-        <div class="header">
-            <div class="container">
-                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-                    <a href="#" class="navbar-brand">MENU</a>
-                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <div class="navbar-nav m-auto">
-                            <a href="/" class="nav-item nav-link">Trang chủ</a>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Danh mục</a>
-                                <div class="dropdown-menu">
-                                    <a href="/product" class="dropdown-item">Tất cả sản phẩm</a>
-                                    <a href="/1" class="dropdown-item">Trái Cây</a>
-                                    <a href="/2" class="dropdown-item">Rau củ</a>
-                                    <a href="/3" class="dropdown-item">Đậu</a>                               
-                                </div>
-                            </div>
-                            <a href="/about" class="nav-item nav-link">Giới thiệu</a>
-                            <a href="/contact" class="nav-item nav-link">Liên hệ</a>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-        <!-- Header End -->
-        
-        
-        <!-- Breadcrumb Start -->
-        <div class="breadcrumb-wrap">
-            <div class="container">
-                <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-                    <li class="breadcrumb-item active">Đăng kí</li>
-                </ul>
-            </div>
-        </div>
-        <!-- Breadcrumb End -->
-        
-        
         <!-- Login Start  -->
         <div class="row">
             <div class="col-md-6">
@@ -224,50 +128,50 @@
                                 </a>
                                 <form action="/dangki" method="post"  name="frmDangKy">
                                     <p>
-                                        <label>Name<span>*</span></label>
+                                        <label>Họ và tên<span>*</span></label>
                                         <input name="ho_ten" id="ho_ten"type="text" required>
                                         <p id="thongbao" style="display:none">Vui lòng nhập họ và tên</p>
 
                                     </p>
                                     <p>    
-                                        <label>User name<span>*</span></label>
+                                        <label>Tên đăng nhập<span>*</span></label>
                                         <input name="ten_dn" id="ten_dn" type="text" required>
                                         <p id="thongbao1" style="display:none">Vui lòng nhập username</p>
                                     </p>
                                     <p> 
-                                        <label>Email address<span>*</span></label>
+                                        <label>Email<span>*</span></label>
                                         <input name="email" id="email" type="email" required>
                                         <p id="thongbao2" style="display:none">Email không hợp lệ</p>
                                     </p>
                                     <p> 
-                                        <label>Address<span>*</span></label>
+                                        <label>Địa chỉ<span>*</span></label>
                                         <input name="dia_chi" id="dia_chi" type="text" required>
                                         <p id="thongbao3" style="display:none">Vui lòng nhập địa chỉ</p>
 
                                     </p>
                                     <p> 
-                                        <label>Phone<span>*</span></label>
+                                        <label>Số điện thoại<span>*</span></label>
                                         <input name="so_dt" id="so_dt" type="text" required>
                                         <p id="thongbao4" style="display:none">Vui lòng nhập số điện thoại</p>
                                     </p>
                                     <p> 
-                                        <label>Password<span>*</span></label>
+                                        <label>Mật khẩu<span>*</span></label>
                                         <input name="mat_khau" id="mat_khau" type="password" required>
-                                        <p id="thongbao5" style="display:none">Vui lòng nhập password</p>
-                                        <p id="thongbao8" style="display:none">Password phải có độ dài ít nhất 8 kí tự</p>
+                                        <p id="thongbao5" style="display:none">Vui lòng nhập mật khẩu</p>
+                                        <p id="thongbao8" style="display:none">Mật khẩu phải có độ dài ít nhất 8 kí tự</p>
 
                                     </p>
                                     <p> 
-                                        <label>Again password<span>*</span></label>
+                                        <label>Nhập lại mật khẩu<span>*</span></label>
                                         <input name="mat_khau1" id="mat_khau1" type="password" required>
-                                        <p id="thongbao6" style="display:none">Nhập lại password</p>
-							            <p id="thongbao7" style="display:none">Password nhập không chính xác.Mời bạn nhập lại password</p>
+                                        <p id="thongbao6" style="display:none">Nhập lại mật khẩu</p>
+							            <p id="thongbao7" style="display:none">Mật khẩu nhập không chính xác.Mời bạn nhập lại mật khẩu</p>
                                     </p>
                                     <p>
                                         <label>
-                                            <a href="/login">Have an account</a>
+                                            <a href="/dangnhap">Đăng nhập</a>
                                         </label>
-                                        <input type="submit" name="submit" value="Signup" onclick="return kiemTraDangKy()" />
+                                        <input type="submit" name="submit" value="Đăng kí" onclick="return kiemTraDangKy()" />
                                     </p>
                                 </form>
                             </div>
